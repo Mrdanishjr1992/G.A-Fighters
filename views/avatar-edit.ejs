@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet" />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+    <script defer src="/js/dom_manipulation.js"></script>
+    <title>Edit Avatar</title>
+</head>
+
+<body class="body" onload="combine()">
+    <div class="content">
+        <!-- HEADER START -->
+        <header class="header">
+            <h1 class="display-1 text-center">Avatar Info</h1>
+            <div class="d-flex flex-row justify-content-between">
+                <a href="/index/account/avatars/<%= avatar._id  %>" class="btn btn-primary">Back</a>
+                <a href="/index/logout" class="btn btn-primary">Logout</a>
+            </div>
+        </header>
+        <h1 id="error-message" class="alert alert-danger hidden" role="alert"></h1>
+        <!-- HEADER END -->
+        <h3 class="text-center">Edit Your Avatar</h3>
+        <!-- MAIN START -->
+        <main class="main d-flex justify-content-center">
+            <form action="/index/account/avatars/<%= avatarId %>?_method=PUT" method="POST" class="p-5 text-center">
+                <div class="form-group">
+                    <label for="name">Character Name</label>
+                    <input id="name" type="text" name="name" class="form-control" value="<%= avatar.name %>" />
+                </div>
+                <div class="form-group">
+                    <label for="img">Image Url</label>
+                    <input id="img" type="text" name="img" class="form-control" value="<%= avatar.img %>" />
+                </div>
+                <div class="form-group">
+                    <label for="info">info</label>
+                    <input id="bio" type="text" name="info" class="form-control" value="<%= avatar.info %>" />
+                </div>
+                <h2>Level: <%= lvl %>
+                </h2>
+                <h2 id="skillpoints-tag">Skill Points:</h2>
+                <h2 id="skillpoints">
+                    <%= skillpts %>
+                </h2>
+                <!-- PARTIAL EJS -->
+                <%- include('partials/avatar-stat.ejs') %>
+                    <!-- PARTIAL EJS -->
+                    <button type="submit" class="btn btn-primary">
+                        Level Up
+                    </button>
+            </form>
+        </main>
+        <!-- MAIN END -->
+    </div>
+    <!-- FOOTER START -->
+    <%- include('partials/footer.ejs') %>
+        <!-- FOOTER END -->
+</body>
+
+</html>

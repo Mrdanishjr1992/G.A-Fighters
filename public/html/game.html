@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <script defer src="../js/bootstrap.bundle.js"></script>
+    <script defer src="../js/app.js"></script>
+    <!-- <script data-main="../js/app.js" src="../js/require.js"></script> -->
+    <title>Game</title>
+</head>
+<body>
+    <a href="account.html">&lt</a>
+    <main class="game-window">
+        <div class="info-display">
+
+        <div class="bar-container player-bar-container">
+            <meter class="hp" id="player-hp"
+                min="0" max="100"
+                low="33" high="66" optimum="80"
+                value="50">
+            </meter>
+            <meter class="mp" id="player-mp"
+                min="0" max="100"
+                value="50">
+            </meter>
+        </div>
+
+        <h3 id="timer">12</h3>
+
+        <div class="bar-container enemy-bar-container">
+            <meter class="hp" id="enemy-hp"
+                min="0" max="100"
+                low="33" high="66" optimum="80"
+                value="50">
+            </meter>
+            <meter class="mp" id="enemy-mp"
+                min="0" max="100"
+                value="50">
+            </meter>
+        </div>
+
+        </div>
+        <div id="play-window">
+            <div class="fighter" id="player">
+                <div class="player-attack hitbox" id = "player-attack"></div>
+            </div>
+            <div class="fighter" id="enemy"></div>
+        </div>
+    </main>
+    <a href="level-up.html">Level Up</a>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+    <script defer src="/js/app.js"></script>
+    <script defer src="/js/dom_manipulation.js"></script>
+    <title>Game</title>
+  </head>
+
+  <body class="body" onload="backg()">
+    <div class="content">
+      <!-- HEADER START -->
+      <%- include('partials/header-game.ejs') %>
+      <!-- HEADER END -->
+      <!-- MAIN START -->
+      <main class="main-game">
+        <div class="intructions">
+          <section class="info-header">
+            <h2>Controls</h2>
+          </section>
+          <section class="info-section">
+            <p class="game-info">MOVE:</p>
+            <p class="game-info move-info">⬅➡</p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">JUMP:</p>
+            <p class="game-info jump-info">⬆</p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">ATTACK:</p>
+            <p class="game-info">SPACE</p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">FIREBALL:</p>
+            <p class="game-info fire-info">Z</p>
+          </section>
+          <section class="info-section">
+            <p></p>
+          </section>
+          <section class="info-header">
+            <h2>Win</h2>
+          </section>
+          <section class="info-section">
+            <p class="game-info">
+              The game end when one player reach zero HP or timeout.
+              <br /><br />
+              Who ever has the highest proportional HP wins.
+            </p>
+          </section>
+          <section class="info-section"></section>
+          <section class="info-header">
+            <p class="game-info">*note</p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">
+              Experience will <strong>not</strong> be save until you click the
+              Save Button.
+            </p>
+          </section>
+        </div>
+        <div class="game-window">
+          <div class="info-display">
+            <div class="bar-container player-bar-container">
+              <meter
+                class="hp"
+                id="player-hp"
+                min="0"
+                max="<%= avatar.stats.health %>"
+                low="<%= avatar.stats.health*0.2 %>"
+                high="<%= avatar.stats.health*0.5 %>"
+                optimum="<%= avatar.stats.health*0.8 %>"
+                value="<%= avatar.stats.health %>"
+              ></meter>
+              <meter
+                class="mp"
+                id="player-mp"
+                min="0"
+                max="<%= avatar.stats.mana %>"
+                value="<%= avatar.stats.mana %>"
+              ></meter>
+            </div>
+            <div class="timer">
+              <p id="timer">99</p>
+            </div>
+
+            <div class="bar-container enemy-bar-container">
+              <meter
+                class="hp"
+                id="enemy-hp"
+                min="0"
+                max="<%= opponent.stats.health %>"
+                low="<%=  opponent.stats.health*0.2 %>"
+                high="<%=  opponent.stats.health*0.5 %>"
+                optimum="<%=  opponent.stats.health*0.8 %>"
+                value="<%=  opponent.stats.health %>"
+              ></meter>
+              <meter
+                class="mp"
+                id="enemy-mp"
+                min="0"
+                max="<%=  opponent.stats.mana %>"
+                value="<%=  opponent.stats.mana %>"
+              ></meter>
+            </div>
+          </div>
+          <div class="name-tag">
+            <h4><%= avatar.name %></h4>
+            <h4><%= opponent.name %></h4>
+          </div>
+          <div id="play-window">
+            <%- include('partials/player.ejs') %> <%-
+            include('partials/enemy.ejs') %>
+          </div>
+          <div class="notification hidden" id="notification-area">
+            <p id="notification-message">notification</p>
+          </div>
+          <div class="pause hidden" id="pause-area">
+            <p id="pause-message">notification</p>
+            <label>Controls:<button id="control-toggle">Arrows</button></label>
+          </div>
+        </div>
+        <div class="opponent-bio">
+          <section class="info-section">
+            <img
+              src="<%= opponent.img %>"
+              alt="Opponent"
+              class="opponent-pic"
+            />
+            <!-- 
+                    <p class=""> Level: <%= opponent.stats.exp*2 %> </p> -->
+          </section>
+          <section class="info-section">
+            <p class="game-info">Name:</p>
+            <p class="game-info"><%= opponent.name %></p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">Bio:</p>
+            <p class="game-info"><%= opponent.info %></p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">Level</p>
+            <p class="game-info">
+              <%= Math.floor(Math.log(9*(opponent.stats.exp)/100)/Math.log(3))
+              %>
+            </p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">HP</p>
+            <p class="game-info"><%= opponent.stats.health %></p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">MP</p>
+            <p class="game-info"><%= opponent.stats.mana %></p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">Atk</p>
+            <p class="game-info"><%= opponent.stats.attack %></p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">Def</p>
+            <p class="game-info"><%= opponent.stats.defence %></p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">SpAtk</p>
+            <p class="game-info"><%= opponent.stats.spclAttack %></p>
+          </section>
+          <section class="info-section">
+            <p class="game-info">SpDef</p>
+            <p class="game-info"><%= opponent.stats.spclDefence %></p>
+          </section>
+        </div>
+      </main>
+      <section>
+        <p>
+          The game is played best on 1900 x 900, anything less cuts off the
+          Game-Window.
+        </p>
+      </section>
+    </div>
+    <!-- FOOTER START -->
+    <%- include('partials/footer.ejs') %>
+    <!-- FOOTER END -->
+  </body>
+</html>

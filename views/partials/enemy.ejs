@@ -1,0 +1,11 @@
+<% statStr=['health','mana','attack','defence','spclAttack','spclDefence','exp'] %> 
+<% statAttr=['hp','mp','atk','def','spAtk','spDef','exp'] %> 
+<div class="fighter" id="enemy" style="background-image: url('<%= opponent.img %>');" 
+        <% for(i=0;i<statStr.length;i++){ %>   
+            <%= statAttr[i] %> = "<%= opponent.stats[statStr[i]] %>" 
+        <% } %> 
+            <%= 'personality' %> = "<%= opponent.personality %>" 
+        name="<%= opponent.name %>" 
+    >
+    <div class="attack hitbox hidden" id = "enemy-attack"></div>
+</div>

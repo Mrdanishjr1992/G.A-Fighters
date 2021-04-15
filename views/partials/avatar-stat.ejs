@@ -1,0 +1,20 @@
+<% statStr=['health','mana','attack','defence','spclAttack','spclDefence'] %>
+    <% statAttr=['hp','mp','atk','def','spAtk','spDef'] %>
+        <% for(i=0;i<statStr.length;i++){ %>
+
+            <div class="stat-container">
+                <label for="" class="stat-label">
+                    <%= statAttr[i] %>
+                </label>
+                <div class="stat-control form-group">
+                    <div class="btn btn-danger" id="<%= statStr[i] %>-down-stat-btn">&lt;</div>
+                    <div class="input-container">
+                        <div class="input"></div>
+                        <input type="number" name="<%= statStr[i] %>" id="<%= statStr[i] %>"
+                            class="stat-input form-control" value="<%= avatar.stats[statStr[i]] %>"></input>
+                    </div>
+                    <div class="btn btn-danger" id="<%= statStr[i] %>-up-stat-btn">&gt;</div>
+                </div>
+            </div>
+
+            <% } %>

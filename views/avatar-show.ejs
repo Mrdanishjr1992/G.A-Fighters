@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+    <script defer src="/js/dom_manipulation.js"></script>
+    <title>Avatar Details</title>
+  </head>
+
+  <body class="body">
+    <div class="content">
+      <!-- HEADER START -->
+      <header class="header">
+        <h1 class="display-1 text-center">Avatar Stats</h1>
+        <div class="d-flex flex-row justify-content-between">
+          <a href="/index/account/" class="btn btn-primary">Back</a>
+          <a href="/index/logout" class="btn btn-primary">Logout</a>
+        </div>
+      </header>
+      <!-- HEADER END -->
+      <!-- MAIN START -->
+      <main class="main d-flex justify-content-center">
+        <div class="card card-stats" style="width: 20rem">
+          <img
+            src="<%= avatar.img %>"
+            alt="Hero"
+            class="card-img-top img-card"
+            style="width: 10em"
+          />
+          <div class="card-body card-stats">
+            <h3 class="card-title">Name: <%= avatar.name %></h3>
+            <h3 class="">Bio: <%= avatar.info %></h3>
+            <h3 class="">HP: <%= avatar.stats.health %></h3>
+            <h3 class="">Mp: <%= avatar.stats.mana %></h3>
+            <h3 class="">Att: <%= avatar.stats.attack %></h3>
+            <h3 class="">Def: <%= avatar.stats.defence %></h3>
+            <h3 class="">SpclAtt: <%= avatar.stats.spclAttack %></h3>
+            <h3 class="">SpclDef: <%= avatar.stats.spclDefence %></h3>
+            <h3 class="">Level: <%= levelInfo.lvl %></h3>
+            <h3 class="">Next level: <%= levelInfo.expRem %>xp</h3>
+          </div>
+          <form
+            action="/index/account/avatars/<%= avatar._id %>?_method=DELETE"
+            method="POST"
+            class="form-group"
+          >
+            <a
+              href="/index/account/avatars/<%= avatar._id %>/game"
+              class="btn btn-primary"
+              id="play-btn"
+              >Play</a
+            >
+            <a
+              href="/index/account/avatars/<%= avatar._id %>/edit"
+              class="btn btn-warning"
+              >Edit</a
+            >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </main>
+      <!-- MAIN END -->
+    </div>
+    <!-- FOOTER START -->
+    <%- include('partials/footer.ejs') %>
+    <!-- FOOTER END -->
+  </body>
+</html>

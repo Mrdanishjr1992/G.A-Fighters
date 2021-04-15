@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <script defer src="../js/bootstrap.bundle.js"></script>
+    <script defer src="../js/dom_manipulation.js"></script>
+    <title>Level-Up</title>
+</head>
+<body>
+    <main>
+        <form action="" method="post" class="form">
+            <h1 for="">Character Name</h1>
+            
+            <h2 id="skillpoints">Skill Points: ###</h2>
+
+            <div class="stat-container">
+                <label for="" class="stat-label">HP</label>
+                <div class="stat-control">
+                    <div class="btn" id="health-down-stat-btn">&lt;</div>
+                    <p type="number" name="health" id="health" class="stat-input"value=5>5</p>
+                    <div class="btn" id="health-up-stat-btn">&gt;</div>
+                </div>
+            </div>
+            <div class="stat-container">
+                <label for="" class="stat-label">MP</label>
+                <div class="stat-control">
+                    <div class="btn" id="mana-down-stat-btn">&lt;</div>
+                    <p type="number" name="mana" id="mana" class="stat-input"value=5>5</p>
+                    <div class="btn" id="mana-up-stat-btn">&gt;</div>
+                </div>
+            </div>
+            <div class="stat-container">
+                <label for="" class="stat-label">Atk</label>
+                <div class="stat-control">
+                    <div class="btn" id="attack-down-stat-btn">&lt;</div>
+                    <p type="number" name="attack" id="attack" class="stat-input"value=5>5</p>
+                    <div class="btn" id="attack-up-stat-btn">&gt;</div>
+                </div>
+            </div>
+            <div class="stat-container">
+                <label for="" class="stat-label">Def</label>
+                <div class="stat-control">
+                    <div class="btn" id="defence-down-stat-btn">&lt;</div>
+                    <p type="number" name="defence" id="defence" class="stat-input"value=5>5</p>
+                    <div class="btn" id="defence-up-stat-btn">&gt;</div>
+                </div>
+            </div>
+            <div class="stat-container">
+                <label for="" class="stat-label">SpAtk</label>
+                <div class="stat-control">
+                    <div class="btn" id="spclAttack-down-stat-btn">&lt;</div>
+                    <p type="number" name="spclAttack" id="spclAttack" class="stat-input" value=5>5</p>
+                    <div class="btn" id="spclAttack-up-stat-btn">&gt;</div>
+                </div>
+            </div>
+            <div class="stat-container">
+                <label for="" class="stat-label">SpDef</label>
+                <div class="stat-control">
+                    <div class="btn" id="spclDefence-down-stat-btn">&lt;</div>
+                    <p type="number" name="spclDefence" id="spclDefence" class="stat-input" value=5>5</p>
+                    <div class="btn" id="spclDefence-up-stat-btn">&gt;</div>
+                </div>
+            </div>
+            <button type="submit"> <a href="game.html">Level Up</a></button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<main  class="main d-flex  justify-content-center ">
+    <form action="/index/account/avatars" method="post" class="text-center p-5">
+        <div class="form-group">
+            <label for="name">Character Name</label>
+            <input id="name" type="text" name="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="img">Image Url</label>
+            <input id="img" type="text" name="img" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="info">Bio</label>
+            <input id="info" type="text" name="info" class="form-control">
+        </div>
+        <h2 id="skillpoints-tag">Skill Points: </h2>
+        <h2 id="skillpoints">20</h2>
+        <div class="stat-container">
+            <label for="" class="stat-label">HP</label>
+            <div class="stat-control form-group">
+                <div class="btn btn-danger" id="health-down-stat-btn">&lt;</div>
+                <div class="input-container">
+                    <div class="input"></div>
+                    <input type="number" name="health" id="health" class="stat-input form-control"value=100></input>
+                </div>
+                <div class="btn btn-danger" id="health-up-stat-btn">&gt;</div>
+            </div>
+        </div>
+        <div class="stat-container">
+            <label for="" class="stat-label">MP</label>
+            <div class="stat-control form-group">
+                <div class="btn btn-danger" id="mana-down-stat-btn">&lt;</div>
+                <div class="input-container">
+                    <div class="input"></div>
+                    <input type="number" name="mana" id="mana" class="stat-input form-control"value=100></input>
+                </div>
+                <div class="btn btn-danger" id="mana-up-stat-btn">&gt;</div>
+            </div>
+            </div>
+        <div class="stat-container">
+            <label for="" class="stat-label">Atk</label>
+            <div class="stat-control form-group">
+                <div class="btn btn-danger" id="attack-down-stat-btn">&lt;</div>
+                <div class="input-container">
+                    <div class="input"></div>
+                    <input type="number" name="attack" id="attack" class="stat-input form-control"value=5></input>
+                </div>
+                <div class="btn btn-danger" id="attack-up-stat-btn">&gt;</div>
+            </div>
+        </div>
+        <div class="stat-container">
+            <label for="" class="stat-label">Def</label>
+            <div class="stat-control form-group">
+                <div class="btn btn-danger" id="defence-down-stat-btn">&lt;</div>
+                <div class="input-container">
+                    <div class="input"></div>
+                    <input type="number" name="defence" id="defence" class="stat-input form-control"value=5></input>
+                </div>
+                <div class="btn btn-danger" id="defence-up-stat-btn">&gt;</div>
+            </div>
+        </div>
+        <div class="stat-container">
+            <label for="" class="stat-label">SpAtk</label>
+            <div class="stat-control form-group">
+                <div class="btn btn-danger" id="spclAttack-down-stat-btn">&lt;</div>
+                <div class="input-container">
+                    <div class="input"></div>
+                    <input type="number" name="spclAttack" id="spclAttack" class="stat-input form-control" value=5></input>
+                </div>
+                <div class="btn btn-danger" id="spclAttack-up-stat-btn">&gt;</div>
+            </div>
+        </div>
+        <div class="stat-container">
+            <label for="" class="stat-label">SpDef</label>
+            <div class="stat-control form-group">
+                <div class="btn btn-danger" id="spclDefence-down-stat-btn">&lt;</div>
+                <div class="input-container">
+                    <div class="input"></div>
+                    <input type="number" name="spclDefence" id="spclDefence" class="stat-input form-control" value=5></input>
+                </div>
+                <div class="btn btn-danger" id="spclDefence-up-stat-btn">&gt;</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary"> Create </button>
+    </form>
+</main>

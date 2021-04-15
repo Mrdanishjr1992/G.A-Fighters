@@ -1,0 +1,23 @@
+<header class="header pow">
+    <h1 class="logo">G.A-Fighters</h1>
+    <div class="d-flex flex-row justify-content-between">
+        <a href="/index/account" class="btn btn-primary">Back</a>
+        <form action="/index/account/avatars/<%= avatar._id %>/level?_method=PUT" method="post">
+            <div class="input-container">
+                <div class="lvl-container">
+                    <label>Lvl</label>
+                    <div class="stat-control form-group">
+                        <div class="input-container">
+                            <div class="input"></div>
+                            <input type="number" id="level-display" name = "lvl">
+                            <input type="number" class="hidden" id="exp" name="exp" value="<%= avatar.stats.exp %>">
+                            <input type="text" class="hidden" id="personality" name="personality" value="<%= avatar.personality %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <a href="/index/logout" class="btn btn-primary">Logout</a>
+    </div>
+</header>

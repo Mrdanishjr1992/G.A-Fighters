@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <script defer src="/js/bootstrap.bundle.js"></script>
+    <script defer src="/js/dom_manipulation.js"></script>
+
+    <title>New Avatar</title>
+</head>
+
+<body class="body" onload=combine()>
+    <div class="content">
+        <!-- HEADER START -->
+        <%- include('partials/header.ejs') %>
+            <h1 id="error-message" class="alert alert-danger hidden" role="alert"></h1>
+            <!-- HEADER END -->
+            <h3 class="text-center">Create a new Avatar.</h3>
+            <!-- MAIN START -->
+            <%- include('partials/new-form.ejs') %>
+                <!-- MAIN END -->
+    </div>
+    <!-- FOOTER START -->
+    <%- include('partials/footer.ejs') %>
+        <!-- FOOTER END -->
+</body>
+
+</html>

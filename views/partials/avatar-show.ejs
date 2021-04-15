@@ -1,0 +1,28 @@
+<section class="text-center p-5">
+  <form action="/index/account/avatars/<%= user.avatars[i]._id %>" method="get">
+    <button type="submit" class="btn btn-primary p-4">
+      <div class="character card p-3">
+        <img
+          src="<%= user.avatars[i].img %>"
+          alt="avatar-img"
+          style="width: 10em"
+          class="character-image card-img-top p-2 img-card"
+        />
+        <div class="card-body">
+          <p class="character-name card-text text-black-50 fw-bolder">
+            <strong> <%= user.avatars[i].name %> </strong>
+          </p>
+          <p class="character-text card-text text-success fw-bolder">
+            <%= user.avatars[i].info %>
+          </p>
+        </div>
+      </div>
+    </button>
+  </form>
+  <form
+    action="/index/account/avatars/<%= user.avatars[i]._id %>?_method=DELETE"
+    method="post"
+  >
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</section>
